@@ -1,36 +1,20 @@
-import {useState} from "react"
+import HomePage from "./component/HomePage";
 
 
-const App:React.FC = () =>{
 
-  const [value, setValue] = useState('')
-  const [toDoList, setToDoList] = useState([])
 
-  const handleSubmit = (event:React.FormEvent<EventTarget>) =>{
-    event.preventDefault();
-    setValue('')
-    setToDoList([])
-    console.log('---',value);
-    
-  }
 
-  const handleChanges = (event: React.ChangeEvent<HTMLInputElement>) =>{
-    setValue(event.target.value)
 
-  }
-return(
-<>
-<div className="container">
-<form action="" onSubmit={handleSubmit}>
-  <input type="text" name="" id="" value={value} onChange={handleChanges} placeholder="Enter a To Do List" />
-  <button type="submit">Submit</button>
-</form>
+const App: React.FC = () => {
 
-</div>
 
-</>
+  return (
+    <div className="flex w-[100vw] bg-black h-screen">
+     <HomePage/>
+     
+    </div>
 
-);
+  );
 }
 
 export default App
