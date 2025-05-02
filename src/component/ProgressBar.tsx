@@ -10,7 +10,7 @@ const ProgressBar:React.FC<IProgressInterface>= ({progress}) => {
   return (
     <div>
       <Box sx={{ width: '100%', }}>
-        <h2 className='text-black ml-2 md:ml-0'>{progress}%</h2>
+        <h2 className='text-black ml-2 md:ml-0'> Your Progress {progress}%</h2>
   <LinearProgress variant="determinate" value={progress } 
   sx={{
     height: 12,                    
