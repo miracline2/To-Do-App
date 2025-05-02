@@ -65,7 +65,7 @@ export const ToDoApp: React.FC = () => {
     console.log(percentage);
 
     setProgress(percentage);
-  }, []);
+  }, [toDoList]);
 
 
   const onCompleted = (id: number) => {
