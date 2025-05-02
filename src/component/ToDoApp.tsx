@@ -18,21 +18,26 @@ export const ToDoApp: React.FC = () => {
   const [day, setDay] = useState<string>('')
   const [progress, setProgress] = useState<number>(0)
   const [openDialog, setOpenDialog] = useState(false);
-
+  const [error, setError] = useState('');
   const handleSubmit = (event: React.FormEvent<EventTarget>) => {
     event.preventDefault();
+    if (value.trim() === '') {
+      setError ('Please enter a task!');
+      return;
+    }
     const toDoData: toDoData = {
       id: Date.now(),
       value: value,
       isRead: false
     }
+    
     setValue('')
     setToDoList([...toDoList, toDoData])
-    console.log('toDolist', toDoList);
+    setError('')
   }
 
   const handleChanges = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value)
+    setValue(event.target.value);
 
   }
   useEffect(() => {
@@ -60,7 +65,7 @@ export const ToDoApp: React.FC = () => {
     console.log(percentage);
 
     setProgress(percentage);
-  }, [toDoList]);
+  }, []);
 
 
   const onCompleted = (id: number) => {
@@ -95,7 +100,7 @@ export const ToDoApp: React.FC = () => {
         <Card sx={{ borderRadius: '16px' }}
           className=' min-w-[250px] border-2 md:border-4 border-black h-[45%] mt-5 md:mt-0 '
         >
-          <p className='text-black text-sm md:text-2xl text-center  xl:mt-10 '>{day}</p>
+          <p className='text-black text-sm md:text-2xl text-center mt-[2em]  xl:mt-10 '>{day}</p>
           <p className='text-black text-sm md:text-2xl text-center'>{date}</p>
 
         </Card>
@@ -114,6 +119,7 @@ export const ToDoApp: React.FC = () => {
               className='w-[30px] h-[30px] xl:w-[50px] md:h-[50px] border-2 md:text-4xl bg-orange-500 rounded-full mt-2 items-center '
             >+</button>
           </form>
+          {error && <p className="text-red-500 text-sm">{error}</p>}
         </div>
 
       </Card>

@@ -9,7 +9,7 @@ interface IProgressInterface{
 const ProgressBar:React.FC<IProgressInterface>= ({progress}) => {
   return (
     <div>
-      <Box sx={{ width: '100%', }}>
+      <Box sx={{ width: '85%', }}>
         <h2 className='text-black ml-2 md:ml-0'> Your Progress {progress}%</h2>
   <LinearProgress variant="determinate" value={progress } 
   sx={{

@@ -1,6 +1,6 @@
 import Card from '@mui/material/Card'
 import React from 'react'
-
+import { motion } from 'framer-motion';
 interface ItodoListProps {
   id: number,
   value: string,
@@ -23,7 +23,13 @@ const ToDoList: React.FC<ItodosProps> = ({ todos, onDelete, onCompleted }) => {
       {/* Scrollable inner div */}
       <div className="p-5 overflow-y-auto h-full space-y-2 md:space-y-4">
         {todos.map((item) => (
-          <div key={item.id} className="flex flex-row items-center justify-around gap-2 md:gap-10 ">
+          <motion.div 
+          key={item.id}
+          initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ type: 'spring', stiffness: 100 }}
+             className="flex flex-row items-center justify-around gap-2 md:gap-10 ">
             <input
               className="border-2 w-5 h-5 cursor-pointer"
               type="checkbox"
@@ -43,7 +49,7 @@ const ToDoList: React.FC<ItodosProps> = ({ todos, onDelete, onCompleted }) => {
             >
               X
             </button>
-          </div>
+          </motion.div>
         ))}
       </div>
     </Card>
