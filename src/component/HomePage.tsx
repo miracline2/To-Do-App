@@ -6,12 +6,12 @@ const navigate = useNavigate();
   return (
     <div className="h-full flex justify-center items-center flex-col">
 
-       <p className='text-center text-black  font-bold text-5xl flex justify-center items-center '>Productivity</p>
-        <Card sx={{ minWidth: 275,borderRadius: '16px' }}
+       <p className='text-center text-black  font-bold text-2xl md:text-5xl flex justify-center items-center '>Productivity</p>
+        <Card sx={{ borderRadius: '16px' }}
          className=" overflow-hidden border-4 border-black"
          >
            
-            <img src={toDO} className='w-25 h-25' alt="ToDoImage" />
+            <img src={toDO} className='w-15 h-15 md:w-25 md:h-25' alt="ToDoImage" />
        
         </Card>
         <button 
