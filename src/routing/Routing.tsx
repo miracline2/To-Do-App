@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import HomePage from "../component/HomePage"
-import { ToDoApp } from "../component/ToDoApp"
+import Home from "../Pages/Home"
 
 
 const Routing = () => {
@@ -8,7 +8,7 @@ const Routing = () => {
     
       <Routes>
         <Route path="/" element={<HomePage/>} />
-        <Route path="/toDo" element={<ToDoApp/>} />
+        <Route path="/toDo" element={<Home/>} />
       </Routes>
       
   
